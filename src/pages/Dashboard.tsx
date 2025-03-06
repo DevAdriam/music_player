@@ -5,15 +5,9 @@ import RecentPlay from "../components/RecentPlay";
 import Recommend from "../components/Recommend";
 import SideNav from "../components/SideNav";
 import { useMusicStore } from "../store/useMusicStore";
-import RecentSongLoader from "../components/RecentSongLoader";
 
 const Dashboard = () => {
-  const {
-    fetchRecentSongs,
-    fetchRecommendedSongs,
-    isLoadingRecent,
-    isLoadingRecommended,
-  } = useMusicStore();
+  const { fetchRecentSongs, fetchRecommendedSongs } = useMusicStore();
 
   useEffect(() => {
     fetchRecentSongs();
