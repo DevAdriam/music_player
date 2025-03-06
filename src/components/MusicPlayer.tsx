@@ -101,7 +101,6 @@ export default function MusicPlayer() {
         </span>
       </div>
 
-      {/* Bottom Icons */}
       <div className="flex items-center justify-end gap-3 mt-3 text-white opacity-70">
         <ListMusic className="cursor-pointer hover:opacity-100" />
         <Monitor className="cursor-pointer hover:opacity-100" />

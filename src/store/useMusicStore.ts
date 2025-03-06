@@ -1,8 +1,8 @@
 import { create } from "zustand";
 import axios from "axios";
 
-const API_KEY = "2";
-const BASE_URL = "https://www.theaudiodb.com/api/v1/json";
+const API_KEY = import.meta.env.VITE_API_KEY;
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 interface Song {
   idTrack: string;
