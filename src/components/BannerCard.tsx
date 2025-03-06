@@ -17,7 +17,7 @@ const BannerCard = ({
         <h1 className="font-bold text-6xl text-white uppercase">{title}</h1>
         <span className="text-xl text-gray-100/50 my-2">{text}</span>
       </div>
-      <PlayCircle className="absolute bottom-3 left-2.5 text-white" size={30} />
+      <PlayCircle className="absolute bottom-3 left-3.5 text-white" size={30} />
     </div>
   );
 };

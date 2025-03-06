@@ -1,9 +1,9 @@
 import { useMusicStore } from "../store/useMusicStore";
-import { Album } from "../types/types";
+import RecommendLoader from "./RecommendLoader";
 import RecommendSong from "./RecommendSong";
 
 const Recommend = () => {
-  const { recommendedSongs } = useMusicStore();
+  const { recommendedSongs, isLoadingRecommended } = useMusicStore();
 
   return (
     <div className="py-10">
@@ -11,18 +11,20 @@ const Recommend = () => {
         Recommended For You
       </h1>
       <div className="flex gap-10">
-        {(recommendedSongs as unknown as Album[])
-          .slice(0, 4)
-          .map((item: Album, index) => {
-            return (
-              <RecommendSong
-                artist={item.strArtist}
-                name={item.strAlbum}
-                image={item.strAlbumThumb || ""}
-                key={index}
-              />
-            );
-          })}
+        {isLoadingRecommended
+          ? [1, 2, 3].map((index) => {
+              return <RecommendLoader key={index} />;
+            })
+          : recommendedSongs.slice(0, 4).map((item, index) => {
+              return (
+                <RecommendSong
+                  artist={item.strArtist}
+                  name={item.strAlbum}
+                  image={item.strAlbumThumb || ""}
+                  key={index}
+                />
+              );
+            })}
       </div>
     </div>
   );

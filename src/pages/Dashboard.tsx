@@ -5,17 +5,24 @@ import RecentPlay from "../components/RecentPlay";
 import Recommend from "../components/Recommend";
 import SideNav from "../components/SideNav";
 import { useMusicStore } from "../store/useMusicStore";
+import RecentSongLoader from "../components/RecentSongLoader";
 
 const Dashboard = () => {
-  const { fetchRecentSongs, fetchRecommendedSongs } = useMusicStore();
+  const {
+    fetchRecentSongs,
+    fetchRecommendedSongs,
+    isLoadingRecent,
+    isLoadingRecommended,
+  } = useMusicStore();
 
   useEffect(() => {
     fetchRecentSongs();
     fetchRecommendedSongs();
-  }, []);
+  }, [fetchRecentSongs, fetchRecommendedSongs]);
+
   return (
     <>
-      <div className="w-full flex bg-white  min-h-[85vh] max-h-[85vh] rounded-b-4xl relative shadow-lg shadow-gray-500/0 overflow-x-hidden z-10">
+      <div className="w-full flex bg-white min-h-[85vh] max-h-[85vh] rounded-b-4xl relative shadow-lg shadow-gray-500/0 overflow-x-hidden z-10">
         <SideNav />
         <section className="p-10 relative left-60">
           <Banner />
